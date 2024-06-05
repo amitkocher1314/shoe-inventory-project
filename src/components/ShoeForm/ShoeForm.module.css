@@ -1,0 +1,29 @@
+.form {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 5px;
+    width: 85%;
+  }
+  
+  .form label {
+    padding: 5px;
+  }
+  
+  .form button {
+    margin: 10px;
+    background-color: lightblue;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  .SizeInput{
+    width: 50px;  /* Adjust width */
+    height: 20px; /* Adjust height */
+    box-sizing: border-box; /* Ensure padding and border are included in width and height */
+    font-size: 12px; /* Adjust font size if necessary */
+  }
+  

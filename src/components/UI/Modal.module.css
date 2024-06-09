@@ -1,0 +1,52 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+/* .backdrop is styled to cover the entire viewport with a semi-transparent black background.
+position: fixed ensures that it stays in place relative to the viewport, even when scrolling.
+top: 0 and left: 0 position it at the top-left corner of the viewport.
+width: 100% and height: 100vh make it cover the full width and height of the viewport.
+z-index: 20 ensures it appears above other content but below the modal */
+
+.modal {
+  position: fixed;
+  top: 20vh;
+  left: 5%;
+  width: 90%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 30;
+  animation: slide-down 300ms ease-out forwards;
+  max-height: 60vh; /* Setting a max-height to ensure it doesn't exceed the viewport height */
+  overflow-y: auto; /* Enabling vertical scrolling if content exceeds max-height */
+}
+/* .modal is styled to be a fixed position element centered on the screen.
+top: 20vh positions it slightly below the top of the viewport for a more visually pleasing layout.
+left: 5% and width: 90% give it a width that is responsive on smaller screens.
+background-color: white, padding: 1rem, border-radius: 14px, and box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) style it to look like a typical modal dialog.
+z-index: 30 ensures it appears above the backdrop.
+animation: slide-down 300ms ease-out forwards adds a slide-down animation when the modal appears. */
+@media (min-width: 768px) {
+  .modal {
+    width: 40rem;
+    left: calc(50% - 20rem);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

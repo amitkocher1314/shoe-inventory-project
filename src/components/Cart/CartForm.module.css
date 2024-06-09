@@ -1,0 +1,37 @@
+.cart {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 10px auto;
+    max-width: 400px;
+  }
+  
+  .cart ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .cart ul li {
+    margin-bottom: 10px;
+  }
+  
+  .cart .total {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
+  .cart button {
+    margin-top: 20px;
+    background-color: lightblue;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .cart button:hover {
+    background-color: #00bcd4;
+  }
+  

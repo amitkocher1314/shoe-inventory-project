@@ -1,7 +1,10 @@
-import React, {Fragment,useState} from "react";
+import React, {Fragment,useState,useContext} from "react";
 import styles from "./ShoeForm.module.css";
+import ShoeContext from "../Store/cart-context";
 
 const ShoeForm = (props) => {
+  const {addShoeHandler} = useContext(ShoeContext)
+
   const [shoeName, setShoeName] = useState('');
   const [shoeDescription, setShoeDescription] = useState('');
   const [price, setPrice] = useState('');
@@ -24,7 +27,7 @@ const ShoeForm = (props) => {
         }
     };
 
-    props.onAddShoe(items);
+   addShoeHandler(items)
 
     // Clear the form
     setShoeName('');
@@ -52,11 +55,11 @@ return(
             
             <label htmlFor="quantity">Quantity Available:
             <label htmlFor="quantity-L">L</label>
-            <input className={styles.SizeInput} required type="number" id="quantity-L"  value={sizeL} onChange={(e)=>setSizeL(e.target.value)} />
+            <input className={styles.SizeInput} required type="number" id="quantity-L" min="1" value={sizeL} onChange={(e)=>setSizeL(e.target.value)} />
                 <label htmlFor="quantity-M">M</label>
-                 <input className={styles.SizeInput} required type="number" id="quantity-M"  value={sizeM} onChange={(e)=>setSizeM(e.target.value)}/>
+                 <input className={styles.SizeInput} required type="number" id="quantity-M" min="1"  value={sizeM} onChange={(e)=>setSizeM(e.target.value)}/>
                       <label htmlFor="quantity-S">S</label>
-                       <input className={styles.SizeInput} required type="number" id="quantity-S"  value={sizeS} onChange={(e)=>setSizeS(e.target.value)}/>
+                       <input className={styles.SizeInput} required type="number" id="quantity-S" min="1" value={sizeS} onChange={(e)=>setSizeS(e.target.value)}/>
               </label>
         <button  type="submit">Add Shoe</button>
     </form>

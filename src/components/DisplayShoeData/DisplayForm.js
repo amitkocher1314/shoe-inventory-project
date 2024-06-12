@@ -1,18 +1,19 @@
-import React from "react";
+import React,{useContext} from "react";
 import styles from "./DisplayForm.module.css";
 import Card from "../UI/Card";
+import ShoeContext from "../Store/cart-context";
 
-const DisplayForm = (props) => {
-
+const DisplayForm = () => {
+   const{shoe,decreaseDataHandler} = useContext(ShoeContext)
     const addCartHandler = (data, size) => {
-       
-        props.onDecreaseQuantity(data, size);
+         decreaseDataHandler(data,size)
+        //props.onDecreaseQuantity(data, size);
     }
 
     return (
         <Card>
             <ul className={styles.ul}>
-                {props.shoeData.map((items, index) => (
+                {shoe.map((items, index) => (
                     <li key={index} className={styles.li}>
                         <div><h3>{items.shoeName}</h3></div>
                         <div><p style={{ fontStyle: "italic" }}>{items.shoeDescription}</p></div>

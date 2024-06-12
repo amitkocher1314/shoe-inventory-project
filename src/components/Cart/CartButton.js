@@ -1,13 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import CartIcon from "./CartIcon";
 import styles from "./CartButton.module.css";
-
+import ShoeContext from "../Store/cart-context";
 const CartButton = (props) => {
-    const countUniqueItems = () => {
-        const uniqueItems = new Set();
-        props.cartShoe.forEach((shoe) => uniqueItems.add(shoe.shoeName));
-        return uniqueItems.size;
-    };
+   const {cartShoe} = useContext(ShoeContext)
+
+    // const countUniqueItems = () => {
+    //     const uniqueItems = new Set();
+    //     cartShoe.forEach((shoe) => uniqueItems.add(shoe.shoeName));
+    //     return uniqueItems.size;
+    // };
 
    
     return (
@@ -19,7 +21,8 @@ const CartButton = (props) => {
                 Your Cart
             </span>
             <span>
-            {countUniqueItems()}
+             {cartShoe.length}   
+            {/* {countUniqueItems()} */}
             </span>
         </button>
     );
